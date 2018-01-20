@@ -1,0 +1,17 @@
+<h1>Edit sub_task</h1>
+<%= form_with model: [@task,@sub_task] do |form| %>
+<p>
+  <%= form.label :summary %><br>
+  <%= form.text_field :summary %>
+</p>
+
+<p>
+  <%= form.label :text %><br>
+  <%= form.text_area :text %>
+</p>
+
+<p>
+  <%= form.submit %>
+</p>
+
+<% end %>

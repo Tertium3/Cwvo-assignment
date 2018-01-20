@@ -1,0 +1,19 @@
+<p>
+  <strong>Summary:</strong>
+  <%= @task.summary %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @task.text %>
+</p>
+
+<h3>Sub_tasks</h3>
+
+  <%= render @task.sub_tasks %>
+
+<h4>Add sub_task</h4>
+  <%= render 'sub_tasks/form' %>
+
+<%= link_to 'Edit', edit_task_path(@task) %>
+<%= link_to 'Back', tasks_path %>
