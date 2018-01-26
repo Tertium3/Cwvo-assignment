@@ -51,7 +51,6 @@
 
   <hr>
   <h3>Sub tasks</h3>
-
   <%= render @task.sub_tasks.order(due_date: :desc) %>
   <fieldset>
     <legend><strong>Add sub_task</strong></legend>

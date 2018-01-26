@@ -18,7 +18,14 @@ body{
 
 <body>
 <h1>Listing tasks</h1>
-
+<!--Seach form -->
+<div>
+<%= form_tag(tasks_path, method: :get) do %>
+  <%= text_field_tag :term %>
+  <%= submit_tag 'Search' %><mark> Search by text only</mark>
+<% end %>
+</div>
+<!--Table listing task -->
 <table>
   <tr>
     <th>Summary</th>

@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = Task.all
+    @tasks = Task.search(params[:term])
   end
 
   def show
@@ -45,7 +45,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-      params.require(:task).permit(:summary, :text, :due_date, :important)
+      params.require(:task).permit(:summary, :text, :due_date, :important, :term)
   end
 
 end

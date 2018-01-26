@@ -1,7 +1,5 @@
 <%= form_with model: [ @task, @task.sub_tasks.build] do |form| %>
 
-
-
   <p>
     <%= form.label :summary %><br>
     <%= form.text_field :summary %>
