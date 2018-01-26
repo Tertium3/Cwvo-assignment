@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180119145608) do
+ActiveRecord::Schema.define(version: 20180126020613) do
 
   create_table "sub_tasks", force: :cascade do |t|
     t.string "summary"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20180119145608) do
     t.integer "task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "due_date"
+    t.string "important"
     t.index ["task_id"], name: "index_sub_tasks_on_task_id"
   end
 
@@ -26,6 +28,8 @@ ActiveRecord::Schema.define(version: 20180119145608) do
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "due_date"
+    t.string "important"
   end
 
 end

@@ -1,19 +1,63 @@
-<p>
-  <strong>Summary:</strong>
-  <%= @task.summary %>
-</p>
+<head>
+<!--using internal css before complete external file-->
+  <style>
+  div {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2em;
+  }
+  h1 {
+    display: block;
+    color: red;
+    text-align: center;
+  }
+  h3 {
+    text-align: center;
+    color: blue;
+  }
+  body{
+    background-color: gray;
+  }
+  </style>
 
-<p>
-  <strong>Text:</strong>
-  <%= @task.text %>
-</p>
 
-<h3>Sub_tasks</h3>
+</head>
 
-  <%= render @task.sub_tasks %>
+<body>
+  <h1>Task</h1>
+  <hr>
+  <div>
+    <p>
+      <strong>Summary:</strong>
+      <%= @task.summary %>
+    </p>
 
-<h4>Add sub_task</h4>
-  <%= render 'sub_tasks/form' %>
+    <p>
+      <strong>Text:</strong>
+      <%= @task.text %>
+    </p>
 
-<%= link_to 'Edit', edit_task_path(@task) %>
-<%= link_to 'Back', tasks_path %>
+    <p>
+      <strong>Due date:</strong>
+      <%= @task.due_date %>
+    </p>
+
+    <p>
+      <strong>Important:</strong>
+      <%= @task.important %>
+    </p>
+  </div>
+
+  <hr>
+  <h3>Sub tasks</h3>
+
+  <%= render @task.sub_tasks.order(due_date: :desc) %>
+  <fieldset>
+    <legend><strong>Add sub_task</strong></legend>
+    <%= render 'sub_tasks/form' %>
+  </fieldset>
+
+  <%= link_to 'Edit', edit_task_path(@task) %>
+  <%= link_to 'Back', tasks_path %>
+</body>

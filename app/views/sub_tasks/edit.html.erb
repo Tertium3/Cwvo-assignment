@@ -1,3 +1,12 @@
+<head>
+  <style>
+    body{
+      background-color: gray;
+    }
+  </style>
+</head>
+
+<body>
 <h1>Edit sub_task</h1>
 
 <%= form_with model: [@task,@sub_task] do |form| %>
@@ -12,7 +21,19 @@
 </p>
 
 <p>
+  <%= form.label :due_date %>
+  <%= form.datetime_field :due_date %>
+</p>
+
+<p>
+  <%= form.label :important %>
+  <%= form.text_field :important %>
+  <mark>Can be set as: urgent, high, low, normal</mark>
+</p>
+
+<p>
   <%= form.submit %>
 </p>
 
 <% end %>
+</body>

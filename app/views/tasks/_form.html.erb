@@ -24,6 +24,17 @@
   </p>
 
   <p>
+    <%= form.label :due_date %>
+    <%= form.datetime_field :due_date %>
+  </p>
+
+  <p>
+    <%= form.label :important %>
+    <%= form.text_field :important %>
+    <mark>Can be set as: urgent, high, low, normal</mark>
+  </p>
+
+  <p>
     <%= form.submit %>
   </p>
 <% end %>

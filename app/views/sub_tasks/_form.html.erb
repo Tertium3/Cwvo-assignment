@@ -1,5 +1,7 @@
 <%= form_with model: [ @task, @task.sub_tasks.build] do |form| %>
 
+
+
   <p>
     <%= form.label :summary %><br>
     <%= form.text_field :summary %>
@@ -8,6 +10,17 @@
   <p>
     <%= form.label :text %><br>
     <%= form.text_area :text %>
+  </p>
+
+  <p>
+    <%= form.label :due_date %>
+    <%= form.datetime_field :due_date %>
+  </p>
+
+  <p>
+    <%= form.label :important %>
+    <%= form.text_field :important %>
+    <mark>Can be set as: urgent, high, low, normal</mark>
   </p>
 
   <p>

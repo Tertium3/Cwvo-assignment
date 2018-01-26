@@ -1,19 +1,42 @@
+<head>
+<style>
+h1 {
+  display: block;
+  color: red;
+  text-align: center;
+}
+
+table,td,th {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+body{
+  background-color: gray;
+}
+</style>
+</head>
+
+<body>
 <h1>Listing tasks</h1>
 
 <table>
   <tr>
     <th>Summary</th>
     <th>Text</th>
+    <th>Due date</th>
+    <th>Imporant</th>
   </tr>
 
-  <% @tasks.each do |task| %>
+  <% @tasks.order(due_date: :desc).each do |task| %>
     <tr>
       <td><%= task.summary %></td>
       <td><%= task.text %></td>
-      <td><%= link_to 'Show', task_path(task) %></td>
-      <td><%= link_to 'Edit', edit_task_path(task) %></td>
-      <td><%= link_to 'Destroy', task_path(task),
-                              method: :delete, data: { confirm: 'Are you sure?'} %></td>
+      <td><%= task.due_date %></td>
+      <td><%= task.important %></td>
+      <td><p><%= link_to 'Show', task_path(task) %></p>
+          <p><%= link_to 'Edit', edit_task_path(task) %></p>
+          <p><%= link_to 'Destroy', task_path(task),
+                              method: :delete, data: { confirm: 'Are you sure?'} %></p></td>
     </tr>
   <% end %>
 </table>
@@ -21,6 +44,4 @@
 <p>
 <%= link_to 'New task', new_task_path %>
 </p>
-<p>
-<%= link_to 'Back', controller:'welcome' %>
-</p>
+</body>

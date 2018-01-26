@@ -1,4 +1,4 @@
-
+<fieldset>
 <p>
   <strong>Summary:</strong>
   <%= sub_task.summary %>
@@ -9,6 +9,17 @@
   <%= sub_task.text %>
 </p>
 
+<p>
+  <strong>Due date sub_tasks:</strong>
+  <%= sub_task.due_date %>
+<p/>
+
+<p>
+  <strong>Important:</strong>
+  <%= sub_task.important %>
+</p>
+
+
 <table>
   <tr>
     <td><%= link_to 'Edit sub_task', edit_task_sub_task_path(task_id: @task.id, id: sub_task.id) %></td>
@@ -17,3 +28,4 @@
                               data: { confirm: 'Are you sure?'} %></td>
   </tr>
 </table>
+</fieldset>
